@@ -1,0 +1,194 @@
+-- MySQL dump 10.13  Distrib 8.0.17, for Win64 (x86_64)
+--
+-- Host: localhost    Database: concurso
+-- ------------------------------------------------------
+-- Server version	8.0.17
+
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+/*!50503 SET NAMES utf8mb4 */;
+/*!40103 SET @OLD_TIME_ZONE=@@TIME_ZONE */;
+/*!40103 SET TIME_ZONE='+00:00' */;
+/*!40014 SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0 */;
+/*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
+/*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
+/*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
+SET @MYSQLDUMP_TEMP_LOG_BIN = @@SESSION.SQL_LOG_BIN;
+SET @@SESSION.SQL_LOG_BIN= 0;
+
+--
+-- GTID state at the beginning of the backup 
+--
+
+SET @@GLOBAL.GTID_PURGED=/*!80000 '+'*/ '6fc493c7-c5db-11e9-8962-386077b5e7ca:1-15,
+d4db9ff8-c5db-11e9-b600-386077b5e7ca:1-86';
+
+--
+-- Table structure for table `grupos`
+--
+
+DROP TABLE IF EXISTS `grupos`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `grupos` (
+  `grupo_id` int(11) unsigned NOT NULL AUTO_INCREMENT,
+  `descripcion` varchar(255) NOT NULL,
+  `semestre_id` varchar(255) NOT NULL,
+  PRIMARY KEY (`grupo_id`)
+) ENGINE=InnoDB AUTO_INCREMENT=16 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `grupos`
+--
+
+LOCK TABLES `grupos` WRITE;
+/*!40000 ALTER TABLE `grupos` DISABLE KEYS */;
+INSERT INTO `grupos` VALUES (1,'1A','1'),(2,'1B','1'),(3,'1C','1'),(4,'1D','1'),(5,'3A','2'),(6,'3B','2'),(7,'3C','2'),(8,'3D','2'),(9,'5A','3'),(10,'5B','3'),(11,'5C','3'),(12,'5D','3'),(15,'Jueces','5');
+/*!40000 ALTER TABLE `grupos` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `preg_respon`
+--
+
+DROP TABLE IF EXISTS `preg_respon`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `preg_respon` (
+  `respuesta_id` int(11) unsigned NOT NULL AUTO_INCREMENT,
+  `pregunta_id` int(11) unsigned NOT NULL,
+  `user_id` int(11) unsigned NOT NULL,
+  `calificacion` int(11) unsigned DEFAULT NULL,
+  `respuesta` varchar(255) DEFAULT NULL,
+  `hora_entrada` datetime NOT NULL,
+  `hora_resp` varchar(255) DEFAULT NULL,
+  PRIMARY KEY (`respuesta_id`),
+  UNIQUE KEY `pregunta_id` (`pregunta_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `preg_respon`
+--
+
+LOCK TABLES `preg_respon` WRITE;
+/*!40000 ALTER TABLE `preg_respon` DISABLE KEYS */;
+/*!40000 ALTER TABLE `preg_respon` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `preguntas`
+--
+
+DROP TABLE IF EXISTS `preguntas`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `preguntas` (
+  `pregunta_id` int(11) unsigned NOT NULL AUTO_INCREMENT,
+  `pregunta` varchar(255) NOT NULL,
+  `respuesta` varchar(255) NOT NULL,
+  `ronda` int(11) unsigned NOT NULL,
+  `semestre_id` int(11) unsigned NOT NULL,
+  `uso` tinyint(1) NOT NULL,
+  PRIMARY KEY (`pregunta_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `preguntas`
+--
+
+LOCK TABLES `preguntas` WRITE;
+/*!40000 ALTER TABLE `preguntas` DISABLE KEYS */;
+/*!40000 ALTER TABLE `preguntas` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `semestre`
+--
+
+DROP TABLE IF EXISTS `semestre`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `semestre` (
+  `semestre_id` int(11) unsigned NOT NULL AUTO_INCREMENT,
+  `semestre` varchar(255) NOT NULL,
+  PRIMARY KEY (`semestre_id`)
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `semestre`
+--
+
+LOCK TABLES `semestre` WRITE;
+/*!40000 ALTER TABLE `semestre` DISABLE KEYS */;
+INSERT INTO `semestre` VALUES (1,'Primer semestre'),(2,'Tercer semestre'),(3,'Quinto semestre'),(5,'Jueces');
+/*!40000 ALTER TABLE `semestre` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `tipodeusuario`
+--
+
+DROP TABLE IF EXISTS `tipodeusuario`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `tipodeusuario` (
+  `tipo_id` int(11) unsigned NOT NULL AUTO_INCREMENT,
+  `tipo` varchar(255) NOT NULL,
+  PRIMARY KEY (`tipo_id`)
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `tipodeusuario`
+--
+
+LOCK TABLES `tipodeusuario` WRITE;
+/*!40000 ALTER TABLE `tipodeusuario` DISABLE KEYS */;
+INSERT INTO `tipodeusuario` VALUES (1,'equipo'),(2,'grupo'),(3,'jurado');
+/*!40000 ALTER TABLE `tipodeusuario` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `usuarios`
+--
+
+DROP TABLE IF EXISTS `usuarios`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `usuarios` (
+  `user_id` int(11) unsigned NOT NULL AUTO_INCREMENT,
+  `username` varchar(255) NOT NULL,
+  `passwd` varchar(255) NOT NULL,
+  `grupo_id` int(11) unsigned NOT NULL,
+  `tipo_id` int(11) unsigned NOT NULL,
+  PRIMARY KEY (`user_id`),
+  UNIQUE KEY `username` (`username`)
+) ENGINE=InnoDB AUTO_INCREMENT=28 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `usuarios`
+--
+
+LOCK TABLES `usuarios` WRITE;
+/*!40000 ALTER TABLE `usuarios` DISABLE KEYS */;
+INSERT INTO `usuarios` VALUES (1,'1AEquipo','calorificacion',1,1),(2,'1BEquipo','galponero',2,1),(3,'1CEquipo','bronceado',3,1),(4,'1DEquipo','balneario',4,1),(5,'3AEquipo','desconcertar',5,1),(6,'3BEquipo','incomparable',6,1),(7,'3CEquipo','sablear',7,1),(8,'3DEquipo','ventorrillo',8,1),(9,'5AEquipo','mango',9,1),(10,'5BEquipo','apacentar',10,1),(11,'5CEquipo','termopar',11,1),(12,'5DEquipo','excluible',12,1),(13,'1AGrupo','cincograbado',1,2),(14,'1BGrupo','nerviosamente',2,2),(15,'1CGrupo','ciclistico',3,2),(16,'1DGrupo','prestancia',4,2),(17,'3AGrupo','biogas',5,2),(18,'3BGrupo','quinquefolio',6,2),(19,'3CGrupo','cincoenrrama',7,2),(20,'3DGrupo','manzanal',8,2),(21,'5AGrupo','rebalaje',9,2),(22,'5BGrupo','almojarifazgo',10,2),(23,'5CGrupo','desembargar',11,2),(24,'5DGrupo','malbaratillo',12,2),(25,'juez1','eleccionario',15,3),(26,'juez2','cicahuite',15,3),(27,'juez3','supraclavicular',15,3);
+/*!40000 ALTER TABLE `usuarios` ENABLE KEYS */;
+UNLOCK TABLES;
+SET @@SESSION.SQL_LOG_BIN = @MYSQLDUMP_TEMP_LOG_BIN;
+/*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
+
+/*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
+/*!40014 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS */;
+/*!40014 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS */;
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
+/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
+/*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
+
+-- Dump completed on 2019-08-26 19:17:15

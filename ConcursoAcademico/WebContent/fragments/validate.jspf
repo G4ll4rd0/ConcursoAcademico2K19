@@ -1,0 +1,43 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<%
+String login = "logout.jsp";
+
+//RequestDispatcher dispatcher = getServletContext().getRequestDispatcher(login);
+/*
+if (session == null)
+{
+	// dispatcher.forward(request, response);
+	response.sendRedirect(login);
+}
+
+boolean sessionTimedOut = false;
+
+if (!request.isRequestedSessionIdValid())
+{
+	sessionTimedOut = true;
+}
+
+if (sessionTimedOut)
+{
+	if (!child)
+	{
+		//pagina regular, manda a login
+		//dispatcher.forward(request,response);
+		
+		response.sendRedirect(login);
+	}
+	else
+	{
+		//pagina hijo, manda al padre a un refresh que obliga a ir a login y se cierra el hijo a si mismo
+		out.println("<script>");
+		out.println("	opener.window.history.go(0);");
+		out.println("	window.close();");
+		out.println("</script>");
+	}
+	
+	return;
+}
+*/
+
+%>
