@@ -7,5 +7,5 @@
     <updateXml>true</updateXml>
     <warLocation></warLocation>
     <extraInfo></extraInfo>
-    <webPath>/interapp</webPath>
+    <webPath>/concurso</webPath>
 </tomcatProjectProperties>

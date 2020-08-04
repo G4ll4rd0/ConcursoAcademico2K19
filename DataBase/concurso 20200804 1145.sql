@@ -159,47 +159,6 @@ AVG_ROW_LENGTH = 1170,
 CHARACTER SET utf8,
 COLLATE utf8_general_ci;
 
-CREATE USER 'USER'@'%';
-GRANT Usage ON *.* TO 'USER'@'%' 
-WITH GRANT OPTION;
-GRANT ALL PRIVILEGES ON *.* TO 'USER'@'%';
-GRANT Select, Insert, Update, Delete, Create, Drop, Grant Option, References, Index, Alter, Create Temporary Tables, Lock Tables, Create View, Show View, Create Routine, Alter Routine, Execute, Event, Trigger ON  concurso.* TO 'USER'@'%';
-
-
-
-CREATE USER 'USER2'@'%';
-GRANT Usage ON *.* TO 'USER2'@'%' 
-WITH GRANT OPTION;
-SET PASSWORD FOR 'USER2'@'%' = '*1213A8A6E67D5D93F2623E801058F207AA1BAAB8';
-GRANT ALL PRIVILEGES ON *.* TO 'USER2'@'%';
-GRANT Select, Insert, Update, Delete, Create, Drop, Grant Option, References, Index, Alter, Create Temporary Tables, Lock Tables, Create View, Show View, Create Routine, Alter Routine, Execute, Event, Trigger ON  concurso.* TO 'USER2'@'%';
-
-
-
-CREATE USER 'USER3'@'%';
-SET PASSWORD FOR 'USER3'@'%' = '*EB0BA66C98227CDC99582152119E0B17E2FD264C';
-GRANT Select, Insert, Update ON  interapp.* TO 'USER3'@'%';
-
-
-
-CREATE USER 'mau'@'%';
-GRANT Usage ON *.* TO 'mau'@'%' 
-WITH GRANT OPTION;
-SET PASSWORD FOR 'mau'@'%' = '*263D7D8E6CA5191AE93082617B831AE7279D5A2C';
-GRANT ALL PRIVILEGES ON *.* TO 'mau'@'%';
-GRANT Select, Insert, Update, Delete, Create, Drop, Grant Option, References, Index, Alter, Create Temporary Tables, Lock Tables, Create View, Show View, Create Routine, Alter Routine, Execute, Event, Trigger ON  concurso.* TO 'mau'@'%';
-GRANT Select, Insert, Update, Delete, Create, Drop, Grant Option, References, Index, Alter, Create Temporary Tables, Lock Tables, Create View, Show View, Create Routine, Alter Routine, Execute, Event, Trigger ON  interapp.* TO 'mau'@'%';
-
-
-
-CREATE USER 'root'@'localhost';
-GRANT Usage ON *.* TO 'root'@'localhost' 
-WITH GRANT OPTION;
-SET PASSWORD FOR 'root'@'localhost' = '*263D7D8E6CA5191AE93082617B831AE7279D5A2C';
-GRANT ALL PRIVILEGES ON *.* TO 'root'@'localhost';
-GRANT Select, Insert, Update, Delete, Create, Drop, Grant Option, References, Index, Alter, Create Temporary Tables, Lock Tables, Create View, Show View, Create Routine, Alter Routine, Execute, Event, Trigger ON  concurso.* TO 'root'@'localhost';
-
-
 
 -- 
 -- Dumping data for table usuarios
